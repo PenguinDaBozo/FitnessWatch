@@ -10,6 +10,9 @@ class FitScreen {
         Adafruit_GC9A01A* tft;
         Adafruit_MPU6050* mpu;
 
+        Adafruit_Sensor *accel_sensor;
+        Adafruit_Sensor *gyro_sensor;
+
         bool fitDirtySteps, fitDirtyHR, fitDirtyFlights;
         unsigned nextPollMs;
         int lastSteps, lastHR, lastFlights;

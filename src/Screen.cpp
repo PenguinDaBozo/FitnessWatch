@@ -1,9 +1,9 @@
 #include "Screen.h"
 
-Screen::Screen(Adafruit_GC9A01A* display, DS1307* clock)
-: tft(display), rtc(clock),
+Screen::Screen(Adafruit_GC9A01A* display, Adafruit_MPU6050* mpu, DS1307* clock)
+: tft(display), mpu(mpu), rtc(clock),
   mainScreen(display, clock),
-  fitScreen(display) {
+  fitScreen(display, mpu) {
     currentScreen = SCREEN_MAIN;
 }
 
