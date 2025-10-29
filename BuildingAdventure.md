@@ -386,3 +386,10 @@ void updateScreen(){
 - smth about accelerometer and how ur feet deccelerates or smth
 - also github copilot is like a cheat this thing just automatically thinks wow -> should i turn off?
 - at least today i didnt mess up on committing but for some reason the commit did not go through the code was added? I dont think im supposed to use ```git commit -m```
+
+# Day 8 - 10/28/25
+- did a little research on how heartrate sensors work and stuff
+- ppg reflect green light to skin and when at peak less light at bottom more light
+- spent 1.5 hours on soldering and ended up just buying flux T-T
+- wrote the step counter code along with its daily reset -> EEPREM
+- not bad recovery and also tried to imitate using green led and photoresistor but its not that accurate
