@@ -2,6 +2,7 @@
 #include "Adafruit_GC9A01A.h"
 #include <I2C_RTC.h>
 #include "Adafruit_MPU6050.h"
+#include <EPROM.h>
 
 // I2C connections
 #define SDA 19

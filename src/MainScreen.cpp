@@ -42,7 +42,7 @@ void MainScreen::update() {
   if(t < nextPollMs && !needFullRedraw) return;
   nextPollMs = t + 250;
 
-  if(!RTC.isRunning()) return;
+  if(!RTC->isRunning()) return;
 
   int week = RTC->getWeek();
   int date = RTC->getDay();
@@ -56,8 +56,8 @@ void MainScreen::update() {
   }
 
   if(needFullRedraw || hours != lastHour || minutes != lastMinute){
-    lastHour = hours; lastMinute = minutes;
-
+    lastHour = hours; lastMinute = minutes; 
+    mainDirtyTime = true;
   }
 }
     

@@ -10,16 +10,17 @@ class FitScreen {
         Adafruit_GC9A01A* tft;
         Adafruit_MPU6050* mpu;
 
-        Adafruit_Sensor *accel_sensor;
-        Adafruit_Sensor *gyro_sensor;
-
-        bool fitDirtySteps, fitDirtyHR, fitDirtyFlights;
+        bool fitDirtySteps;
         unsigned nextPollMs;
-        int lastSteps, lastHR, lastFlights;
+        int lastSteps, lastDay;
+        int steps;
+        long accMagnitudePrev;
         bool needFullRedraw;
         
 
         static inline uint32_t nowMs() { return (uin32_t)millis();}
+        void saveSteps();
+        void newDayReset();
 
 
 
