@@ -378,3 +378,18 @@ void updateScreen(){
 - i almost like just wanted to jump off smth after deleting all my work from the past two hours. thankfully gpt clutched up even though because i followed it originally that I almost deleted everything
 - second why did i commit a deletion of my journal bro. and then i had to dig through the trenches of dangling blobs and trees commits to find this file. but ykw at least its back yay and the files r up. the only downside is the past commits is invisible but i dont think its that important. the content were more important to me.
 - today was crazy i did not expect to be sleeping at like 3 oops
+
+# Day 7 - 10/27/25
+- I didn't have that much time to work on it but I checked out how to use the MPU5060
+- it should be simple to use and implement
+- but the thing that ain't simple is apparently for step counting i have to use the pedometer algorithm
+- smth about accelerometer and how ur feet deccelerates or smth
+- also github copilot is like a cheat this thing just automatically thinks wow -> should i turn off?
+- at least today i didnt mess up on committing but for some reason the commit did not go through the code was added? I dont think im supposed to use ```git commit -m```
+
+# Day 8 - 10/28/25
+- did a little research on how heartrate sensors work and stuff
+- ppg reflect green light to skin and when at peak less light at bottom more light
+- spent 1.5 hours on soldering and ended up just buying flux T-T
+- wrote the step counter code along with its daily reset -> EEPREM
+- not bad recovery and also tried to imitate using green led and photoresistor but its not that accurate
