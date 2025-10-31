@@ -393,3 +393,12 @@ void updateScreen(){
 - spent 1.5 hours on soldering and ended up just buying flux T-T
 - wrote the step counter code along with its daily reset -> EEPREM
 - not bad recovery and also tried to imitate using green led and photoresistor but its not that accurate
+
+# Day 9 - 10/29/25
+- not much happen because I can't test the code
+- I tried running platformio for nano but it kept saying com3 was blocked but com3 worked for arduino ide so idk what that means
+
+# Day 10 - 10/30/25
+- soldering session with le flux
+- except I think I inhaled too much smoke and now my lungs kinda hurt maybe I need to touch grass for a bit
+
