@@ -401,4 +401,6 @@ void updateScreen(){
 # Day 10 - 10/30/25
 - soldering session with le flux
 - except I think I inhaled too much smoke and now my lungs kinda hurt maybe I need to touch grass for a bit
+- i messed up one of the imu and one of the visible light and the rest seems ok... the only one that turned out super well was the L shaped connector IMU
+
 
