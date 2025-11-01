@@ -3,33 +3,33 @@
 Screen::Screen(Adafruit_GC9A01A* display, Adafruit_MPU6050* mpu, DS1307* clock)
 : tft(display), mpu(mpu), rtc(clock),
   mainScreen(display, clock),
-  fitScreen(display, mpu) {
+  fitScreen(display, mpu, clock) {
     currentScreen = SCREEN_MAIN;
 }
 
-Screen::invalidateScreen(){
+void Screen::invalidateScreen(){
   needFullRedraw = true;
 }
   
-Screen::nextScreen() {
+void Screen::nextScreen() {
   currentScreen = static_cast<Page>((currentScreen + 1) % NUM_SCREEN);
-  invalidatePage();
+  invalidateScreen();
 }
 
-Screen::prevScreen() {
+void Screen::prevScreen() {
   currentScreen = static_cast<Page>((currentScreen - 1 + NUM_SCREEN) % NUM_SCREEN);
-  invalidatePage();
+  invalidateScreen();
 }
 
-Screen::update() {
+void Screen::update() {
   switch(currentScreen) {
-    case SCREEN_MAIN: mainScreen.update();
-    case SCREEN_FIT: fitScreen.update();
+    case SCREEN_MAIN: mainScreen.update(); break;
+    case SCREEN_FIT: fitScreen.update(); break;
   }
 }
-Screen::draw() {
+void Screen::draw() {
   switch(currentScreen) {
-    case SCREEN_MAIN: mainScreen.draw();
-    case SCREEN_FIT: fitScreen.draw();
+    case SCREEN_MAIN: mainScreen.draw(); break;
+    case SCREEN_FIT: fitScreen.draw(); break;
   }
 }

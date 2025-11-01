@@ -1,3 +1,4 @@
+#include "Hardware.h"
 #include "MainScreen.h"
 
 MainScreen::MainScreen(Adafruit_GC9A01A* display, DS1307* clock)
@@ -8,32 +9,32 @@ MainScreen::MainScreen(Adafruit_GC9A01A* display, DS1307* clock)
     lastWeek = lastDate = lastMonth = lastHour = lastMinute = -1;
 }
 
-const char* MainScreen::dayName(int week){
+void MainScreen::dayName(int week){
   switch(week){
-    case 1: day = "Sun";
-    case 2: day = "Mon";
-    case 3: day = "Tue";
-    case 4: day = "Wed";
-    case 5: day = "Thu";
-    case 6: day = "Fri";
-    case 7: day = "Sat";
+    case 1: day = "Sun"; break;
+    case 2: day = "Mon"; break;
+    case 3: day = "Tue"; break;
+    case 4: day = "Wed"; break;
+    case 5: day = "Thu"; break;
+    case 6: day = "Fri"; break;
+    case 7: day = "Sat"; break;
   }
 }
 
-const char* MainScreen::monthName(int month){
+void MainScreen::monthName(int month){
   switch(month){
-    case 1: month_name = "Jan";
-    case 2: month_name = "Feb";
-    case 3: month_name = "Mar";
-    case 4: month_name = "Apr";
-    case 5: month_name = "May";
-    case 6: month_name = "June";
-    case 7: month_name = "July";
-    case 8: month_name = "Aug";
-    case 9: month_name = "Sept";
-    case 10: month_name = "Oct";
-    case 11: month_name = "Nov";
-    case 12: month_name = "Dec";
+    case 1: month_name = "Jan"; break;
+    case 2: month_name = "Feb"; break;
+    case 3: month_name = "Mar"; break;
+    case 4: month_name = "Apr"; break;
+    case 5: month_name = "May"; break;
+    case 6: month_name = "June"; break;
+    case 7: month_name = "July"; break;  
+    case 8: month_name = "Aug"; break;
+    case 9: month_name = "Sept"; break;
+    case 10: month_name = "Oct"; break;
+    case 11: month_name = "Nov"; break;
+    case 12: month_name = "Dec"; break;
   }
 }
 
@@ -42,13 +43,13 @@ void MainScreen::update() {
   if(t < nextPollMs && !needFullRedraw) return;
   nextPollMs = t + 250;
 
-  if(!RTC->isRunning()) return;
+  if(!RTC.isRunning()) return;
 
-  int week = RTC->getWeek();
-  int date = RTC->getDay();
-  int hours = RTC->getHours();
-  int minutes = RTC->getMinutes();
-  int month = RTC->getMonth();
+  int week = RTC.getWeek();
+  int date = RTC.getDay();
+  int hours = RTC.getHours();
+  int minutes = RTC.getMinutes();
+  int month = RTC.getMonth();
 
   if(needFullRedraw || week != lastWeek || date != lastDate || month != lastMonth){
     lastWeek = week; lastDate = date; lastMonth = month;
@@ -72,13 +73,15 @@ void MainScreen::draw() {
   }
 
   if(mainDirtyDate || needFullRedraw){
-    tft->fillRect(0, cy - 60, tft.width(), 24, GC9A01A_BLACK);
+    tft->fillRect(0, cy - 60, tft->width(), 24, GC9A01A_BLACK);
     tft->setTextColor(GC9A01A_WHITE);  
     tft->setTextSize(2);
     tft->setCursor(cx - 60, cy - 50);
-    tft->print(dayName(lastWeek)); 
+    dayName(lastWeek);
+    tft->print(day); 
     tft->print(" ");
-    tft->print(monthName(lastMonth)); 
+    monthName(lastMonth);
+    tft->print(month_name); 
     tft->print(" ");
     tft->print(lastDate);
     mainDirtyDate = false;

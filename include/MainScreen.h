@@ -1,3 +1,5 @@
+#include <Hardware.cpp>
+
 class MainScreen {
     public:
         MainScreen(Adafruit_GC9A01A* display, DS1307* clock);
@@ -13,9 +15,10 @@ class MainScreen {
         bool mainDirtyDate, mainDirtyTime, needFullRedraw;
         unsigned long nextPollMs;
         int lastWeek, lastDate, lastMonth, lastHour, lastMinute;
-        String month_name, day;
+        String month_name;
+        String day;
 
-        static const char* dayName(int week);
-        static const char* monthName(int month);
+        void dayName(int week);
+        void monthName(int month);
         static inline uint32_t nowMs() { return (uint32_t)millis();}
 };

@@ -1,3 +1,5 @@
+#include <Hardware.h>
+
 class FitScreen {
     public:
         FitScreen(Adafruit_GC9A01A* display, Adafruit_MPU6050* mpu, DS1307* clock);
@@ -6,8 +8,8 @@ class FitScreen {
         void forceRedraw();
 
     private:
-        DS1307* rtc;
         Adafruit_GC9A01A* tft;
+        DS1307* rtc;
         Adafruit_MPU6050* mpu;
 
         bool fitDirtySteps;
@@ -17,11 +19,7 @@ class FitScreen {
         long accMagnitudePrev;
         bool needFullRedraw;
         
-
-        static inline uint32_t nowMs() { return (uin32_t)millis();}
         void saveSteps();
         void newDayReset();
-
-
-
-}
+        static inline uint32_t nowMs() { return (uint32_t)millis();}
+};

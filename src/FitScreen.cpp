@@ -2,8 +2,8 @@
 
 FitScreen::FitScreen(Adafruit_GC9A01A* display, Adafruit_MPU6050* sensor, DS1307* clock)
 : tft(display), mpu(sensor), rtc(clock) 
-{   mpu->setHighPassFilter(MPU6050_HIGHPASS_0_63HZ);
-    mpu->setMotioinDetectionThreshold(2);
+{   mpu->setFilterBandwidth(MPU6050_BAND_94_HZ);
+    mpu->setMotionDetectionThreshold(1);
     mpu->setMotionDetectionDuration(20);
     mpu->setInterruptPinLatch(true);
     mpu->setInterruptPinPolarity(true);
@@ -20,7 +20,7 @@ FitScreen::FitScreen(Adafruit_GC9A01A* display, Adafruit_MPU6050* sensor, DS1307
     lastSteps = -1;
 }
 
-FitScreen::update(){
+void FitScreen::update(){
   uint32_t t = nowMs();
   if(t < nextPollMs && !needFullRedraw) return;
   nextPollMs = t + 250;
@@ -68,24 +68,25 @@ FitScreen::update(){
   // }
 }
 
-FitScreen::draw(){
+void FitScreen::draw(){
   if(!fitDirtySteps || !needFullRedraw) return;
-  // tft.setCursor(30,50);
-  // tft.setTextColor(GC9A01A_BLACK);  tft.setTextSize(5);
-  // tft.println("Fitness page");
+  tft->setCursor(30,50);
+  tft->setTextColor(GC9A01A_BLACK);  
+  tft->setTextSize(5);
+  tft->println("Fitness page");
   
 }
 
-FitScreen::forceRedraw(){
+void FitScreen::forceRedraw(){
   needFullRedraw = true; 
 }
 
-FitScreen::saveSteps(){
+void FitScreen::saveSteps(){
   EEPROM.put(0, steps);
   EEPROM.commit();
 }
 
-FitScreen::newDayReset(){
+void FitScreen::newDayReset(){
   for(int i = 0; i < EEPROM.length(); i++){
     EEPROM.write(i, 0);
   }

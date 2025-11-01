@@ -5,7 +5,7 @@
 #define NUM_SCREEN = 3
 
 
-Screen screen(&tft, &RTC);
+Screen screen(&tft, &mpu, &RTC);
 
 enum {SCREEN_MAIN = 0, 
       SCREEN_FIT = 1, 
@@ -20,29 +20,10 @@ bool needFullRedraw = true;
 
 void setup() {
   Serial.begin(115200);
-
-  Wire.begin(SDA, SCL);
-  SPI.begin(TFT_SCK, -1, TFT_MOSI);
-  
-  RTC.begin();
-  tft.begin();
-  
-  pinMode(LFT_BUTTON, INPUT);
-  pinMode(RGT_BUTTON, INPUT);
-
-  tft.fillScreen(GC9A01A_BLACK);
-  tft.setTextWrap(false);
-
+  HardwareInit();
   currentScreen = SCREEN_MAIN;
   needFullRedraw = true;
   
-}
-
-void loop() {
-  handleButtons();
-  
-  screen.update();
-  screen.draw();
 }
 
 void handleButtons() {
@@ -53,6 +34,14 @@ void handleButtons() {
     screen.nextScreen();
   }
 }
+
+void loop() {
+  handleButtons();
+  
+  screen.update();
+  screen.draw();
+}
+
 
 
 
