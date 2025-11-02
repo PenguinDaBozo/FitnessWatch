@@ -418,3 +418,9 @@ and also the 10:01 and 10:00 bug gee
 - also I need to figure out how to correctly draw and update ex. uncanny eyes might work
 - how tf do modern devices refresh and update their clocks????/
 
+# Day 12 - 11/1/25
+- OKKK, I THINK I FIGURED OUT A SOLUTION TO THE FLICKERS
+- https://github.com/Lemme-lab/Project-Airframe/blob/main/Code/Esp32-Embedded/src/display.cpp
+- THIS LINK WILL SOLVE EVERYTHING -> I NEED TO USE SPRITES
+- which means I have to change the code base again xP
+
