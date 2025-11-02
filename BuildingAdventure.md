@@ -403,4 +403,18 @@ void updateScreen(){
 - except I think I inhaled too much smoke and now my lungs kinda hurt maybe I need to touch grass for a bit
 - i messed up one of the imu and one of the visible light and the rest seems ok... the only one that turned out super well was the L shaped connector IMU
 
+# Day 11 - 10/31/25
+- I fixed the code sort of?
+- I also got the esp32 running on platform io. I dont remember how I fixed the com5 blocking -> i just closed a bunch of things and removed arduino analog and it just started working with occasional boot restarts
+- right now the code bugs a lot and it shows stuff like this
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/f263fe5f-a717-4812-aaed-484f892b91f9" />
+
+<img width="583" height="462" alt="image" src="https://github.com/user-attachments/assets/202ae8d7-709a-4f47-96e6-6ef2fa973a8d" />
+
+and also the 10:01 and 10:00 bug gee
+
+- Im also considering if I should combine RTC and NTP or just switch to NTP bec of the cell battery factor -> too much powering
+- also I need to figure out how to correctly draw and update ex. uncanny eyes might work
+- how tf do modern devices refresh and update their clocks????/
 
