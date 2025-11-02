@@ -423,4 +423,6 @@ and also the 10:01 and 10:00 bug gee
 - https://github.com/Lemme-lab/Project-Airframe/blob/main/Code/Esp32-Embedded/src/display.cpp
 - THIS LINK WILL SOLVE EVERYTHING -> I NEED TO USE SPRITES
 - which means I have to change the code base again xP
+- i wasnt supposed to do much today but I ended up designing the main screen sprite
+- apparently its only a reference but the background stays relatively the same or something?????
 
