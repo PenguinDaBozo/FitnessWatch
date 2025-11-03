@@ -426,3 +426,7 @@ and also the 10:01 and 10:00 bug gee
 - i wasnt supposed to do much today but I ended up designing the main screen sprite
 - apparently its only a reference but the background stays relatively the same or something?????
 
+# Day 13 - 11/2/25
+- designed the mainface and stuff but idk how to diosplay it on the display
+- also this eSPI thing is tweaking breh cuz how is it that i cant even display now
+- wtf is this black to white fade.
