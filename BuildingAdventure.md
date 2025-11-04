@@ -435,4 +435,9 @@ and also the 10:01 and 10:00 bug gee
 - HOLY CRAP I FINALLY FIGURED OUT THE STUPID TFT_ESPI THING -> its bec i didnt read the instructions inside the setup file and also the fact that its tft.init() and not begin()
 - and the fact that I had different definitions than wiring was a bit dumb of me ngl good thing chat noticed
 - yo how did that take like 6 hours to figure out T-T
+- ok I shifted some code over and it still works yayy!!
+- but theres a fluctuation in the screen when you tilt it -> maybe decouple caps?
+- designed some noice images for weather and also separated the image into its parts
+- tmr i shall get the numbers hooray!
+
 
