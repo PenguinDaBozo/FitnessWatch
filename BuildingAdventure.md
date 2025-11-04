@@ -434,3 +434,5 @@ and also the 10:01 and 10:00 bug gee
 # Day 14 - 11/3/25
 - HOLY CRAP I FINALLY FIGURED OUT THE STUPID TFT_ESPI THING -> its bec i didnt read the instructions inside the setup file and also the fact that its tft.init() and not begin()
 - and the fact that I had different definitions than wiring was a bit dumb of me ngl good thing chat noticed
+- yo how did that take like 6 hours to figure out T-T
+
