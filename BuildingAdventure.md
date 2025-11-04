@@ -430,3 +430,7 @@ and also the 10:01 and 10:00 bug gee
 - designed the mainface and stuff but idk how to diosplay it on the display
 - also this eSPI thing is tweaking breh cuz how is it that i cant even display now
 - wtf is this black to white fade.
+
+# Day 14 - 11/3/25
+- HOLY CRAP I FINALLY FIGURED OUT THE STUPID TFT_ESPI THING -> its bec i didnt read the instructions inside the setup file and also the fact that its tft.init() and not begin()
+- and the fact that I had different definitions than wiring was a bit dumb of me ngl good thing chat noticed
