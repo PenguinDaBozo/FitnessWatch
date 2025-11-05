@@ -440,4 +440,9 @@ and also the 10:01 and 10:00 bug gee
 - designed some noice images for weather and also separated the image into its parts
 - tmr i shall get the numbers hooray!
 
+# Day 15 - 11/4/25
+- yahoo! i separated the stuff but in the middle of it i realized i had the wrong canvas size originally so spent like an hr half fixing it
+- the font stuff was kind of dumb because i spent half the time trying to find a converter well at least tft_espi got one
+- it looks cool
+
 
