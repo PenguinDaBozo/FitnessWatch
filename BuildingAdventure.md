@@ -445,4 +445,11 @@ and also the 10:01 and 10:00 bug gee
 - the font stuff was kind of dumb because i spent half the time trying to find a converter well at least tft_espi got one
 - it looks cool
 
+# Day 16 - 11/5/25
+- oh no......
+ <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/83317300-bf01-4b0b-88d4-5eaca829b1f2" />
+
+- 4 channel colors 💀 bec i dont have enough sram
+- this is so sad cuz this board has no memory i guess function > aesthetics
+
 
