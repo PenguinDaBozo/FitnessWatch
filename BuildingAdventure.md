@@ -452,4 +452,14 @@ and also the 10:01 and 10:00 bug gee
 - 4 channel colors 💀 bec i dont have enough sram
 - this is so sad cuz this board has no memory i guess function > aesthetics
 
+# Day 17 - 11/7/25
+- ok now the clock is working yippee but i did have to remove all the colors to save memory but it still has the good contrast
+- also baloo is kind of pmo bec the porportions of the numbers keep changing so this stupid 44 would be so fat it almost crashes into the icons
+- now i have to move onto steps
+- what should i do for the next screen?
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/760c973d-2538-4666-93af-ff36e5510bb6" />
+
+this looks so sick except why when I go to take pic the flash is so bright
+
 
