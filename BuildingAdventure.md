@@ -463,3 +463,11 @@ and also the 10:01 and 10:00 bug gee
 this looks so sick except why when I go to take pic the flash is so bright
 
 
+# Day 18 - 11/8/25
+- uh nothing rlly happened tbf
+- i moved the step tracker to the main screen so most of the code is there but the rtc didn't work and was displaying wild numbers
+
+# Day 19 - 11/9/25
+- i found out that my rtc is stuck at 5v which is prob not good and i dont want to rip off the resistors on the board
+- also mpu6050 is being buggy prob because of the former
+
