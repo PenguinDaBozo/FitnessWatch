@@ -471,3 +471,8 @@ this looks so sick except why when I go to take pic the flash is so bright
 - i found out that my rtc is stuck at 5v which is prob not good and i dont want to rip off the resistors on the board
 - also mpu6050 is being buggy prob because of the former
 
+# Day 20 - 11/10/25
+- tested some stuff with the thing and still doesn't work
+- surprisingly mpu6050 works on arduino so i think its the board itself that's dragging i2c to 5v
+- also i swtiched rtc and it didnt work and removing that block of code is the only thing that keeps it going, which is weird so something in that code might be breaking it or maybe bec of the begin factor.
+
