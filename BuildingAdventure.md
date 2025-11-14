@@ -476,3 +476,8 @@ this looks so sick except why when I go to take pic the flash is so bright
 - surprisingly mpu6050 works on arduino so i think its the board itself that's dragging i2c to 5v
 - also i swtiched rtc and it didnt work and removing that block of code is the only thing that keeps it going, which is weird so something in that code might be breaking it or maybe bec of the begin factor.
 
+# Day 21 - 11/13/25
+- rotary encoder doesnt even work :sob:
+- im switching to buttons possibly
+- also the reason why the thing didnt work is cuz the ds1307 runs on 5v and the mpu6050 on 3.3v and so i need an i2c shifter, which means more soldering..... :sob: 
+
