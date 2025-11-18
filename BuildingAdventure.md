@@ -497,4 +497,8 @@ look at this what am i supposed to do bruh
 
 ok i think i found a solution i have to use a different library that actually takes 0x69 as the input aka electro cat or smth -> now i have to rewrite code i pray this works
 
+<img width="794" height="311" alt="image" src="https://github.com/user-attachments/assets/967c65e6-cc6f-4f59-bc1e-37e860a31511" />
+
+ok well it still doesn't work but at least rtc works now i guess? but this might be bec the mpu's pins are not soldered well
+
 
