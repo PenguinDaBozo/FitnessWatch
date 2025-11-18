@@ -501,4 +501,9 @@ ok i think i found a solution i have to use a different library that actually ta
 
 ok well it still doesn't work but at least rtc works now i guess? but this might be bec the mpu's pins are not soldered well
 
+<img width="877" height="982" alt="image" src="https://github.com/user-attachments/assets/44cc9d29-ad13-4b03-807e-78e51f4d0556" />
+
+hip hip hooray thats another feature done that really shouldnt have taken a week and a half to solve ngl but yayyyyy. also um the problem is that the first read if always going to be the default so idk how to fix that and also the fact that stupid day light savings bruh
+
+
 
