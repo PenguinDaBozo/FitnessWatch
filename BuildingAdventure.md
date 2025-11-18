@@ -505,5 +505,8 @@ ok well it still doesn't work but at least rtc works now i guess? but this might
 
 hip hip hooray thats another feature done that really shouldnt have taken a week and a half to solve ngl but yayyyyy. also um the problem is that the first read if always going to be the default so idk how to fix that and also the fact that stupid day light savings bruh
 
+<img width="1312" height="1469" alt="image" src="https://github.com/user-attachments/assets/5e920591-d540-455b-adcb-687c2001a3a6" />
+
+also this cuz why is the step increasing by itself :sob: omg so many issues after issues. also steps doesnt save to eeprom so i think the video i watched may be invalid
 
 
