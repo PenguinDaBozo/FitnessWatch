@@ -519,6 +519,7 @@ ok nvm the video was valid and the calculation was right its just because im sil
 
 next i need to fix the day thing and think of features to add. i think box breathing is next or maybe i should do a compass except i think that sounds too hard so box breathing it is and if the stupid stm32 etg sensor breaks everything fml
 
+wait actually no i ahve to do the weather which sounds simple.... but is it tho?
 
 
 
