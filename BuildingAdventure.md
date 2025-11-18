@@ -509,4 +509,9 @@ hip hip hooray thats another feature done that really shouldnt have taken a week
 
 also this cuz why is the step increasing by itself :sob: omg so many issues after issues. also steps doesnt save to eeprom so i think the video i watched may be invalid
 
+<img width="812" height="566" alt="image" src="https://github.com/user-attachments/assets/2ae41c6a-c5de-4a4f-b0dc-b04fd2f86500" />
+
+ok nvm the video was valid and the calculation was right its just because im silly and i put the thing in the else statment which makes prevMag forver that value. now i need to fix the screen display through the first run and the daylight saving thing
+
+
 
