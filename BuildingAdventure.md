@@ -513,5 +513,13 @@ also this cuz why is the step increasing by itself :sob: omg so many issues afte
 
 ok nvm the video was valid and the calculation was right its just because im silly and i put the thing in the else statment which makes prevMag forver that value. now i need to fix the screen display through the first run and the daylight saving thing
 
+<img width="885" height="1081" alt="image" src="https://github.com/user-attachments/assets/051a1bf4-4c07-4975-9456-4e90ac67ede9" />
+
+<img width="891" height="1138" alt="image" src="https://github.com/user-attachments/assets/62cc0ef5-6963-42df-960e-65e27efa572b" />
+
+next i need to fix the day thing and think of features to add. i think box breathing is next or maybe i should do a compass except i think that sounds too hard so box breathing it is and if the stupid stm32 etg sensor breaks everything fml
+
+
+
 
 
