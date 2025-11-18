@@ -493,3 +493,8 @@ this looks so sick except why when I go to take pic the flash is so bright
 
 look at this what am i supposed to do bruh
 
+<img width="1006" height="401" alt="image" src="https://github.com/user-attachments/assets/5e0ce56b-3e15-4aac-a35d-8373bc3fe24c" />
+
+ok i think i found a solution i have to use a different library that actually takes 0x69 as the input aka electro cat or smth -> now i have to rewrite code i pray this works
+
+
