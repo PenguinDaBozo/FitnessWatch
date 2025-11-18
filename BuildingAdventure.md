@@ -481,3 +481,9 @@ this looks so sick except why when I go to take pic the flash is so bright
 - im switching to buttons possibly
 - also the reason why the thing didnt work is cuz the ds1307 runs on 5v and the mpu6050 on 3.3v and so i need an i2c shifter, which means more soldering..... :sob: 
 
+# Day 22 - 11/15/25
+- I soldered some i2c shifters and broke my soldeirn ggun 
+
+# Day 23 - 11/16/25
+- damn bro these stupid ahh i2c shifters dont even do anything bec both of them r powered by 5v 😭
+
