@@ -487,3 +487,9 @@ this looks so sick except why when I go to take pic the flash is so bright
 # Day 23 - 11/16/25
 - damn bro these stupid ahh i2c shifters dont even do anything bec both of them r powered by 5v 😭
 
+# Day 24 - 11/17/25
+
+<img width="532" height="351" alt="image" src="https://github.com/user-attachments/assets/878d9be3-493b-40f8-a21e-038b6671767c" />
+
+look at this what am i supposed to do bruh
+
