@@ -523,7 +523,7 @@ wait actually no i ahve to do the weather which sounds simple.... but is it tho?
 
 # Day 25 - 11/18/25
 
-I fixed the hour, dayofweek, and date great job me. wifi connection is not as simple as it seems bec why is everything deprecated
+I fixed the hour, dayofweek, and date great job me. wifi connection is not as simple as it seems bec why is everything deprecated. not me reading the whole docuumentation for openweatherapi and also arduinojson :sob: bro why is there no weather example for version 7.0
 
 <img width="2772" height="1333" alt="image" src="https://github.com/user-attachments/assets/b5b8812b-6c13-42f9-a3ec-3b0363b44cf1" />
 
@@ -537,6 +537,7 @@ so i tried to change version and then i glitched pio again but apparently you ca
 <img width="1218" height="104" alt="image" src="https://github.com/user-attachments/assets/96309ac2-531f-4541-b9d5-4cb0c4c599c7" />
 
 [credits: https://community.platformio.org/t/library-registry-semantic-version-error/44723] 
+
 
 
 
