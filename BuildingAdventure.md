@@ -527,6 +527,16 @@ I fixed the hour, dayofweek, and date great job me. wifi connection is not as si
 
 <img width="2772" height="1333" alt="image" src="https://github.com/user-attachments/assets/b5b8812b-6c13-42f9-a3ec-3b0363b44cf1" />
 
+ummm memory overload prob on ram oopsies daisies anyway 
+
+<img width="879" height="836" alt="image" src="https://github.com/user-attachments/assets/95dd2a7d-7fbc-44ec-b677-c8f961695961" />
+
+
+so i tried to change version and then i glitched pio again but apparently you can just do this
+
+<img width="1218" height="104" alt="image" src="https://github.com/user-attachments/assets/96309ac2-531f-4541-b9d5-4cb0c4c599c7" />
+
+[credits: https://community.platformio.org/t/library-registry-semantic-version-error/44723] 
 
 
 
