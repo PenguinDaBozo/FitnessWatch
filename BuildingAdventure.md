@@ -521,6 +521,14 @@ next i need to fix the day thing and think of features to add. i think box breat
 
 wait actually no i ahve to do the weather which sounds simple.... but is it tho?
 
+# Day 25 - 11/18/25
+
+I fixed the hour, dayofweek, and date great job me. wifi connection is not as simple as it seems bec why is everything deprecated
+
+<img width="2772" height="1333" alt="image" src="https://github.com/user-attachments/assets/b5b8812b-6c13-42f9-a3ec-3b0363b44cf1" />
+
+
+
 
 
 
