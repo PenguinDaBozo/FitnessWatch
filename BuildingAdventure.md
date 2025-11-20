@@ -538,6 +538,10 @@ so i tried to change version and then i glitched pio again but apparently you ca
 
 [credits: https://community.platformio.org/t/library-registry-semantic-version-error/44723] 
 
+# Day 26 - 11/19/25
+
+I fixed the glitching of the display bec of memory by rverting to 6.1.15 for arduino json worked very well
+i spent 1 hour and half literally designing the weather icons kms why was it so hard
 
 
 
