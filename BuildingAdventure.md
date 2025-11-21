@@ -543,6 +543,10 @@ so i tried to change version and then i glitched pio again but apparently you ca
 I fixed the glitching of the display bec of memory by rverting to 6.1.15 for arduino json worked very well
 i spent 1 hour and half literally designing the weather icons kms why was it so hard
 
+# Day 27 - 11/20/25
+
+I converted all those pngs to cpp and now I have to adjust the box for the frame and test different weathers
+
 
 
 
