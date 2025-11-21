@@ -547,6 +547,10 @@ i spent 1 hour and half literally designing the weather icons kms why was it so 
 
 I converted all those pngs to cpp and now I have to adjust the box for the frame and test different weathers
 
+<img width="679" height="729" alt="image" src="https://github.com/user-attachments/assets/82945a1b-78fc-481d-bc41-176bfb8d54c6" />
+
+Hehe... I'm in Japan right now. ok so all of it works yippe the only thing left for this page is to fix the formating of the numbers and letters but thats a later problem
+
 
 
 
