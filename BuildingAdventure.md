@@ -551,6 +551,9 @@ I converted all those pngs to cpp and now I have to adjust the box for the frame
 
 Hehe... I'm in Japan right now. ok so all of it works yippe the only thing left for this page is to fix the formating of the numbers and letters but thats a later problem
 
+# Day 28 - 11/21/25
+
+I worked a little on the changing page mechanism also u cant use /blah blah for folder embedding structures :C
 
 
 
