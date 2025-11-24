@@ -555,6 +555,19 @@ Hehe... I'm in Japan right now. ok so all of it works yippe the only thing left 
 
 I worked a little on the changing page mechanism also u cant use /blah blah for folder embedding structures :C
 
+# Day 29 - 11/22/25
+
+making the screen and stuff and then my stomach and head hurt so i went to zzz
+
+# Day 30 - 11/23/25
+
+designed the box breathing screen and put the code down except font didnt work but then worked apparently only had to call once in any function
+
+anyway heres the pic:<img width="1720" height="969" alt="image" src="https://github.com/user-attachments/assets/3a189c32-632b-417f-8078-e4d8291b9a6c" />
+
+dont separate a font file into cpp and h
+
+also im trying to fix the switch button things and fotns and the start button is not swtiching to the new screen
 
 
 
