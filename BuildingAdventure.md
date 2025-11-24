@@ -569,5 +569,16 @@ dont separate a font file into cpp and h
 
 also im trying to fix the switch button things and fotns and the start button is not swtiching to the new screen
 
+<img width="876" height="891" alt="image" src="https://github.com/user-attachments/assets/94bce6ed-f06b-4efd-9796-7736c4f80d09" />
+
+weird glitchingg that happens might be bec of button
+
+anyway i forgot to call update in main earlier which is why it didnt update (silly me)
+
+<img width="878" height="850" alt="image" src="https://github.com/user-attachments/assets/8cb93507-b2f4-45ae-b855-fa2e065d5c5d" />
+
+<img width="820" height="859" alt="image" src="https://github.com/user-attachments/assets/f3a43e25-b6a7-40c5-8b43-fef09d9d53c0" />
+
+very sick! i was testing if i should use two buttons to change states or juddt one and rn its one but i have to addd thhe flags to make sure ot doesnt hot switch
 
 
