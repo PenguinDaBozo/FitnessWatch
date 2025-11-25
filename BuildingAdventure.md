@@ -581,4 +581,11 @@ anyway i forgot to call update in main earlier which is why it didnt update (sil
 
 very sick! i was testing if i should use two buttons to change states or juddt one and rn its one but i have to addd thhe flags to make sure ot doesnt hot switch
 
+# Day 31 - 11/24/25
+
+added buzzer sound to a countdown for the breathingbox sim and also dixed the thing with mad flags and fixing some bugs 
+
+tried to use the max30102 but its so funky bec sparkfun algo for heartrate doesnt work very well imo but the ir works 
+
+also i need to work faster so i should skip doing sensors and big stuff and do it all later to save time since interface still takes a lot of time
 
