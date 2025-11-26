@@ -594,3 +594,7 @@ also i need to work faster so i should skip doing sensors and big stuff and do i
 I have not update github code for like ages i need to clean up this repo
 
 also i made the stopwatch (it was really easy to code apparently) added some misty weather icons um idk what else i did but the stop watch is very sigma
+
+<img width="894" height="967" alt="image" src="https://github.com/user-attachments/assets/bcd4c449-533c-4ca0-aeee-d84de13cdc77" />
+
+this is so sigma
