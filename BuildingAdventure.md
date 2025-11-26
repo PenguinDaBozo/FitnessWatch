@@ -589,3 +589,8 @@ tried to use the max30102 but its so funky bec sparkfun algo for heartrate doesn
 
 also i need to work faster so i should skip doing sensors and big stuff and do it all later to save time since interface still takes a lot of time
 
+# Day 32 - 11/25/25
+
+I have not update github code for like ages i need to clean up this repo
+
+also i made the stopwatch (it was really easy to code apparently) added some misty weather icons um idk what else i did but the stop watch is very sigma
