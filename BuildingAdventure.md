@@ -598,3 +598,7 @@ also i made the stopwatch (it was really easy to code apparently) added some mis
 <img width="894" height="967" alt="image" src="https://github.com/user-attachments/assets/bcd4c449-533c-4ca0-aeee-d84de13cdc77" />
 
 this is so sigma
+
+# Day 33 - 11/26/25
+
+i fixed the stopwatch... maybe consider having it extend more than an hour by changing the size?
