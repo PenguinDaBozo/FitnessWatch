@@ -602,3 +602,18 @@ this is so sigma
 # Day 33 - 11/26/25
 
 i fixed the stopwatch... maybe consider having it extend more than an hour by changing the size?
+
+# Day 34 - 11/27/25
+
+Goddamn how did i spend so much time on the stupid animation and it still doesnt work :sob:
+
+anyways I think i started making the pcb (i forogt to record here so i have no clue when i started the pcb)
+
+# Day 35 - 11/28/25
+
+added the battery circuit and worked on the mpu5060
+
+# day 36 - 11/29/25
+
+decided to delete the regulators and stuff and holy freaking gosh bro i have so much tabs open just bec im looking at datasheets 
+
