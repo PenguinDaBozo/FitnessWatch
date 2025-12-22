@@ -619,7 +619,7 @@ decided to delete the regulators and stuff and holy freaking gosh bro i have so 
 
 # day 37 - 11/30/25 
 
-I started designing the PCB and oh god it was horrible
+I started designing the PCB and oh god it was horrible -> switched to the s3 because I realized the pico d4 chip is dying 
 
 <img width="452" height="503" alt="image" src="https://github.com/user-attachments/assets/c3aab669-b959-4df6-9f3d-83afd6dbec09" />
 
@@ -653,13 +653,13 @@ restarted for the fourth time and migrated to pro version of easyeda because low
 
 # day 44 - 12/6/25
 
-placing components later... I start routing and I'm like following GPT's guide of track width but then I realize that the placement of things aint correct sooo.... fixing the wiring size and stuff and also the placement of things more to the left because I created these paper models and realized I had the wiring wrong for the tft display. Great idea for simulation me btw. 
+placing components later... I start routing and I'm like following GPT's guide of track width 
 
 # day 45 - 12/7/25
 
 at this point bro just stop.
 
-I watched some videos - Thanks to Altium academy and the other thing I don't remmeber watching. Applied those over the next couple of days. anyway I start checking the modules, starting from the sensors, checking every datashee in the world and making sure the capacitor and ended up pulling an all nighter
+I watched some videos - Thanks to Altium academy and the other thing I don't remmeber watching. Applied those over the next couple of days. anyway I start checking the modules, starting from the sensors, checking every datashee in the world and making sure the capacitor and ended up pulling an all nighter because  I realize that the placement of things aint correct sooo.... fixing the wiring size and stuff and also the placement of things more to the left because I created these paper models and realized I had the wiring wrong for the tft display. Great idea for simulation me btw. 
 
 # day 46 - 12/8/25
 
@@ -751,3 +751,4 @@ I think they look pretty sick. need to ensure the setting for layer height is 0.
 I might need to adjust the wristband because it slides out too easily.
 
 pcb is ready to ship hip hip hooray
+
