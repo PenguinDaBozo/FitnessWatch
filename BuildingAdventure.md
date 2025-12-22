@@ -661,7 +661,16 @@ at this point bro just stop.
 
 I watched some videos - Thanks to Altium academy and the other thing I don't remmeber watching. Applied those over the next couple of days. anyway I start checking the modules, starting from the sensors, checking every datashee in the world and making sure the capacitor and ended up pulling an all nighter because  I realize that the placement of things aint correct sooo.... fixing the wiring size and stuff and also the placement of things more to the left because I created these paper models and realized I had the wiring wrong for the tft display. Great idea for simulation me btw. 
 
+<img width="561" height="548" alt="image" src="https://github.com/user-attachments/assets/76dbcb15-ff6d-4331-a32b-5304a5594bc0" />
+
+reference for original wiring
+
+<img width="583" height="516" alt="image" src="https://github.com/user-attachments/assets/2967aeb7-6f4c-4237-a679-1d4e2888a417" />
+
 # day 46 - 12/8/25
+
+
+<img width="466" height="374" alt="image" src="https://github.com/user-attachments/assets/45b21d61-12b5-4725-8084-adb8afb037cd" />
 
 checking and adjusting capacitors. moving the router and crystal and shfiting the heart rate ssensor waas really painful but its ok I liekd it.
 
@@ -681,9 +690,17 @@ checking and adjusting capacitors.
 
 final touches on the wiring width and especially the ground planes. added a top and bottom plane for some reason just bec i thought it was cool perhaps this might eat me in thebutt later.
 
+<img width="849" height="566" alt="image" src="https://github.com/user-attachments/assets/67c1234d-19f4-4462-ae1e-d0c6e6891c5a" />
+
+
 # day 51 - 12/13/25
 
 I finish checking the PCB yay, but I kind of forgot to check the differential pairs for the USB... oops but I don't think it will have that big of an impact. Had to fix the antenna rlly quick bec of impedence control.
+
+<img width="656" height="519" alt="image" src="https://github.com/user-attachments/assets/a1a5307b-0280-48cd-aa78-d20fb3cc0e7f" />
+
+<img width="491" height="362" alt="image" src="https://github.com/user-attachments/assets/f350602a-4244-4886-a9bd-73d1884ac2e9" />
+
 
 # day 52 - 12/14/25
 
@@ -691,13 +708,17 @@ Turns out I have some vias that are too small and stuff so I canceled the order 
 
 I start mmeasuring and stuff of the TFT display and create a base circle. Didn't fit the first time so I adjusted it for tolerance. Then I added some snazzy deatils and print it out:
 
-You can tell I definitely took a lot of inspiraiton from casio watches. I mean I did have one when I was younger 😋
+<img width="460" height="766" alt="image" src="https://github.com/user-attachments/assets/f0e8c076-4823-4dd2-a61a-493e3aee59a3" />
+
+You can tell I definitely took a lot of inspiraiton from casio watches. I mean I did have one when I was younger 😋 last one is broken because i was testing durability. 
 
 # day 53 - 12/15/25
 
 Issues with the board because I didn't standardize the BOM because I didn't know I had to :C. Asking Frank from JCLPCB to fix some stuff. Then who is Paul?? Anyway told me he can't modify 
 
 I create the PCB case and add the four corner hooks. Turns out I did not learn my lesson about tolerance so I printed one where the hooks didn't snap with the cap. But after some adjusting it worked.
+
+<img width="571" height="771" alt="image" src="https://github.com/user-attachments/assets/2bdab382-0bfb-4123-80e2-8139052daaba" />
 
 
 # day 54 - 12/16/25
@@ -716,6 +737,8 @@ Then they had to confirm the speaker stuff which had some trouble because the we
 
 I making the curviest of the cruvisest buckle. Hooly cow how do u do cruve stuff on onShape. After a few dimensions I finish and it looks ok?
 
+<img width="581" height="778" alt="image" src="https://github.com/user-attachments/assets/bdee2100-5336-4c1f-a591-9b8405acd050" />
+
 # day 56 - 12/18/25
 
 Now I making the hook and chamfer some edges so its curvy.
@@ -731,6 +754,9 @@ started printing the case stuff out and mom accidentally snapped off two of the 
 <img width="459" height="238" alt="image" src="https://github.com/user-attachments/assets/d9d14445-d744-4159-9909-6f07c94f4d74" />
 
 
+<img width="548" height="703" alt="image" src="https://github.com/user-attachments/assets/b57ecb67-4acc-463c-918b-0bf60b667aa9" />
+
+
 # day 58 - 12/20/25
 
 waiting for watch wrist bands to print the entire day:
@@ -739,11 +765,23 @@ some pics also dont print vertically because lots of stringing.
 
 also changed the height like 50 times -> started with 3 then 5 then 4 then switched to 3. for some reason there was a splotch so I reprint the next day. 
 
+<img width="1011" height="516" alt="image" src="https://github.com/user-attachments/assets/601f2b6a-f8b0-4b31-af92-505b032fd383" />
+
+epic watch spread with the right being the first version
+
+
 # day 59 - 12/21/25
 
 It might have been a while since I updated this, but I've done a lot since then aka making the watch case and stuff. 3 -> 2 mm and used rectilinear for that nice grid texture
 
+changed the hooks a bit because of tolerance
+
+<img width="692" height="728" alt="image" src="https://github.com/user-attachments/assets/1d52106f-e4bd-4af4-958a-455f0bcb4818" />
+
+
 Here are the final results: 
+
+<img width="945" height="723" alt="image" src="https://github.com/user-attachments/assets/633e0d53-d0a7-4894-abf9-47d0c35ca9bd" />
 
 
 I think they look pretty sick. need to ensure the setting for layer height is 0.1 so everything is very good quality. 
@@ -751,4 +789,5 @@ I think they look pretty sick. need to ensure the setting for layer height is 0.
 I might need to adjust the wristband because it slides out too easily.
 
 pcb is ready to ship hip hip hooray
+
 
