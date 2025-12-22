@@ -617,3 +617,137 @@ added the battery circuit and worked on the mpu5060
 
 decided to delete the regulators and stuff and holy freaking gosh bro i have so much tabs open just bec im looking at datasheets 
 
+# day 37 - 11/30/25 
+
+I started designing the PCB and oh god it was horrible
+
+<img width="452" height="503" alt="image" src="https://github.com/user-attachments/assets/c3aab669-b959-4df6-9f3d-83afd6dbec09" />
+
+what le hell is dis
+
+well I can't recover the original so this is the best image representation
+
+# day 38 - 12/1/25
+
+I continue placing stuff and stuff. 4 hours later...
+
+# day 40 - 12/2/25
+
+I restarted a new board because apparently you can't have buttons at an angle and restarting was easier. Placing components til god know when.
+
+# day 41 - 12/3/25
+
+Placing.... placing... -> tracing then realizing there's a lot of rules I broke...
+
+# day 42 - 12/4/25
+
+I think I finished here and then realized that it wasn't good enough...
+
+<img width="409" height="368" alt="image" src="https://github.com/user-attachments/assets/3f5a2652-7293-4d96-a279-f579e90a3517" />
+
+
+** note i mightve not updated this in a while and am updating on 12/21/25
+# day 43 - 12/5/25
+
+restarted for the fourth time and migrated to pro version of easyeda because lowkey I shouldve done so from the start. then i didn't like the placement so I remade another design... oh god.
+
+# day 44 - 12/6/25
+
+placing components later... I start routing and I'm like following GPT's guide of track width but then I realize that the placement of things aint correct sooo.... fixing the wiring size and stuff and also the placement of things more to the left because I created these paper models and realized I had the wiring wrong for the tft display. Great idea for simulation me btw. 
+
+# day 45 - 12/7/25
+
+at this point bro just stop.
+
+I watched some videos - Thanks to Altium academy and the other thing I don't remmeber watching. Applied those over the next couple of days. anyway I start checking the modules, starting from the sensors, checking every datashee in the world and making sure the capacitor and ended up pulling an all nighter
+
+# day 46 - 12/8/25
+
+checking and adjusting capacitors. moving the router and crystal and shfiting the heart rate ssensor waas really painful but its ok I liekd it.
+
+# day 47 - 12/9/25 
+
+checking and adjusting capacitors. 
+
+# day 48 - 12/10/25
+
+checking and adjusting capacitors. I think i moved everything to the left because I was changing the wing size and fixed the button wiring. 
+
+# day 49 - 12/11/25
+
+checking and adjusting capacitors. 
+
+# day 50 - 12/12/25
+
+final touches on the wiring width and especially the ground planes. added a top and bottom plane for some reason just bec i thought it was cool perhaps this might eat me in thebutt later.
+
+# day 51 - 12/13/25
+
+I finish checking the PCB yay, but I kind of forgot to check the differential pairs for the USB... oops but I don't think it will have that big of an impact. Had to fix the antenna rlly quick bec of impedence control.
+
+# day 52 - 12/14/25
+
+Turns out I have some vias that are too small and stuff so I canceled the order and reordered with bigger vias to avoid the 40 dollar fee and then it turns out that there were still some vias I didn't get rid of so I paid that 40 dollars :sob:
+
+I start mmeasuring and stuff of the TFT display and create a base circle. Didn't fit the first time so I adjusted it for tolerance. Then I added some snazzy deatils and print it out:
+
+You can tell I definitely took a lot of inspiraiton from casio watches. I mean I did have one when I was younger 😋
+
+# day 53 - 12/15/25
+
+Issues with the board because I didn't standardize the BOM because I didn't know I had to :C. Asking Frank from JCLPCB to fix some stuff. Then who is Paul?? Anyway told me he can't modify 
+
+I create the PCB case and add the four corner hooks. Turns out I did not learn my lesson about tolerance so I printed one where the hooks didn't snap with the cap. But after some adjusting it worked.
+
+
+# day 54 - 12/16/25
+
+I respond back to Paul saying I want to replace components on the board. But he wasn't responding so I asked frank again and he responds and gives me permissioin yayy! I replace the Capacitors with Yageo 603 -> i shoudlve done this in the first place :sob:
+
+Now I started on the straps, which were pretty simple enough and designed a mechanism for the watch straps to attach.
+
+<img width="625" height="185" alt="image" src="https://github.com/user-attachments/assets/bf8e27bf-1081-4f21-b8c0-286a5104ae4f" />
+
+<img width="744" height="650" alt="image" src="https://github.com/user-attachments/assets/0c9577ca-5fdc-4ff0-a051-f4243490a813" />
+
+# day 55 - 12/17/25
+
+Then they had to confirm the speaker stuff which had some trouble because the website was gltiching and the DFM was stuck on modification. To which I start asking Nick about whats happening and stuff and some guy with the S name helps me enable the confirmation and then I talk to Nick again...
+
+I making the curviest of the cruvisest buckle. Hooly cow how do u do cruve stuff on onShape. After a few dimensions I finish and it looks ok?
+
+# day 56 - 12/18/25
+
+Now I making the hook and chamfer some edges so its curvy.
+
+they tell me that production starts at 8 and im like finally yay.
+
+# day 57 - 12/19/25
+
+pcb in the making and lowkey it was pretty fast. 
+
+started printing the case stuff out and mom accidentally snapped off two of the hooks of the pcb case... oops but this told me to improve the hook to be thicker 
+
+<img width="459" height="238" alt="image" src="https://github.com/user-attachments/assets/d9d14445-d744-4159-9909-6f07c94f4d74" />
+
+
+# day 58 - 12/20/25
+
+waiting for watch wrist bands to print the entire day:
+
+some pics also dont print vertically because lots of stringing. 
+
+also changed the height like 50 times -> started with 3 then 5 then 4 then switched to 3. for some reason there was a splotch so I reprint the next day. 
+
+# day 59 - 12/21/25
+
+It might have been a while since I updated this, but I've done a lot since then aka making the watch case and stuff. 3 -> 2 mm and used rectilinear for that nice grid texture
+
+Here are the final results: 
+
+
+I think they look pretty sick. need to ensure the setting for layer height is 0.1 so everything is very good quality. 
+
+I might need to adjust the wristband because it slides out too easily.
+
+pcb is ready to ship hip hip hooray
