@@ -790,4 +790,25 @@ I might need to adjust the wristband because it slides out too easily.
 
 pcb is ready to ship hip hip hooray
 
+# day 60 - 12/22/25
+
+i tried wiring the new esp32 baord with tft display on arduino ide which worked. idk if i hallucinated but i thought 5v of the board did work
+
+# day 61 - 12/23/25
+
+tried uploading code via platformio to the new board but erm problems again. one apparently theres a memory issue perhaps because of the specs of the baord and two apparently the 5v pin of the baord doesnt give out 5v. 
+
+how do i know? i dont because the probing of the pins were very interesting kept showing 3 on the 5v. but then my genius ass came up with the solution of using a power module on the breadboard YAY. taht worked and the mpu6050 and rtc works.
+
+at fiirst i thought oh this was just another dumb address collision but apparently it was saying smth else -> aka the memory bruh.
+
+# day 62 - 12/24/25
+
+PCB has arrived HOORAY! JCLPCB came in clutch except two problems:
+
+1. I can't believe I didn't tie EN of buck step down regulator to HIGH :sob: this is why u read the datasheet
+
+<img width="1199" height="137" alt="image" src="https://github.com/user-attachments/assets/663278f2-bb74-46c3-b826-0d052a758cad" />
+  
+2. idk if its cuz the s3 had no power or if you have to have usb to uart converter (anyway im pretty sure it wouldve been fine if i had one on the board anyway) but i cant upload code rn
 
