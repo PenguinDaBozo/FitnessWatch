@@ -808,7 +808,25 @@ PCB has arrived HOORAY! JCLPCB came in clutch except two problems:
 
 1. I can't believe I didn't tie EN of buck step down regulator to HIGH :sob: this is why u read the datasheet
 
+
 <img width="1199" height="137" alt="image" src="https://github.com/user-attachments/assets/663278f2-bb74-46c3-b826-0d052a758cad" />
   
 2. idk if its cuz the s3 had no power or if you have to have usb to uart converter (anyway im pretty sure it wouldve been fine if i had one on the board anyway) but i cant upload code rn
+
+# day 63 - 12/25/25
+
+spent whole day editing the case of the PCB and it still doesnt fit wtf
+
+also bro why doesnt esp32 s3 work on tft_esprite and why did no one say so
+
+# day 64 - 12/26/25
+
+YAY I FINALLY FIGURED IT OUT FOR LOVYAN. i need to use lovyan cuz tft_espritre is outdated and the last update was 2 years ago which is why the original dev board worked cuz that was old af. anyway i got lovyan working cuz after scroling through 10 forums gosh
+
+https://github.com/espressif/arduino-esp32/issues/6958 -> i need to change memory type to qio opi
+
+and also thanks to all the goats on arduino and platformio forums for figuring out how to configure stupid sdkconfig.h
+
+https://community.platformio.org/t/hpp-header-files-seems-to-compile-in-c-and-not-c/38432/9
+
 
