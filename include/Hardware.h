@@ -58,6 +58,26 @@ extern LGFX tft;
 extern LGFX_Sprite img;
 extern bool invalidateScreen;
 
+struct State {
+    int currentScreen;
+
+    int month, date, dayOfWeek;
+    int hour, minute;
+
+    int steps;
+
+    float temp;
+    char description[8];
+
+    bool farenheitMode;
+    bool isFirstRun;
+    bool dirtyDate, dirtyTime, daylightSaving;
+    bool dirtyWeather;
+};
+
+extern State state;
+
+
 
 // box breathing state
 extern int countdownBreathing;
@@ -75,4 +95,7 @@ extern const GFXfont Roboto_Black10pt7b;
 extern bool staticDrawn;
 extern bool count;
 extern bool isStart;
+
+
+void screenInit();
 
