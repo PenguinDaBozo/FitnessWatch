@@ -1,29 +1,78 @@
 #pragma once
-#include "Adafruit_GC9A01A.h"
-#include <I2C_RTC.h>
-#include "Adafruit_MPU6050.h"
+#include <I2Cdev.h>
+#include <MPU6050.h>
+#include <RTClib.h>
 #include <EEPROM.h>
+#include <Wire.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <ArduinoJson.h>
+#include <cstring>
+#include "Adafruit_GFX.h"
+#include <LovyanGFX.hpp>
+
+class LGFX : public lgfx::LGFX_Device {
+    lgfx::Panel_GC9A01 panel;
+    lgfx::Bus_SPI bus;
+
+    public:
+
+    LGFX(){
+        auto b = bus.config();
+        b.spi_host = SPI2_HOST;
+        b.spi_mode = 0;
+        b.freq_write = 40000000;
+        b.pin_mosi = 6;
+        b.pin_miso = -1;
+        b.pin_sclk = 7;
+        b.pin_dc   = 10;
+        bus.config(b);
+        panel.setBus(&bus);
+
+        auto p = panel.config();
+        p.pin_rst = 5;
+        p.pin_cs  = 9;
+        p.panel_width = 240;
+        p.panel_height = 240;
+        p.rgb_order = true;
+        p.invert = true;
+        panel.config(p);
+
+        setPanel(&panel);
+    }
+};
 
 // I2C connections
-#define SDA 19
-#define SCL 22
+#define SDA 15
+#define SCL 16
 
-// TFT display
-#define TFT_MOSI 13
-#define TFT_SCK 14
-#define TFT_DC 25
-#define TFT_CS 26
-#define TFT_RST 2
+// buttons
+#define UP_BUTTON 12
+#define DOWN_BUTTON 21
+#define BUTTON_START 39
+#define BUTTON_STOP 38
 
-// Buttons
-#define LFT_BUTTON 20
-#define RGT_BUTTON 21
+#define BUZZER 14
 
-extern Adafruit_GC9A01A tft;
-extern Adafruit_MPU6050 mpu;
-extern DS1307 RTC;
-extern Adafruit_Sensor *accel_sensor;
-extern Adafruit_Sensor *gyro_sensor;
-extern Adafruit_Sensor *temp_sensor;
+extern LGFX tft;
+extern LGFX_Sprite img;
+extern bool invalidateScreen;
 
-void HardwareInit();
+
+// box breathing state
+extern int countdownBreathing;
+
+enum BreathingState{
+  MENU_STATE,
+  COUNTDOWN_STATE,
+  SIMULATION_STATE
+};
+extern BreathingState breathingState;
+
+// countdown state
+extern const GFXfont Baloo2_Bold46pt7b;
+extern const GFXfont Roboto_Black10pt7b;
+extern bool staticDrawn;
+extern bool count;
+extern bool isStart;
+

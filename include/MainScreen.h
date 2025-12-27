@@ -1,24 +1,11 @@
-#include <Hardware.cpp>
+#include "Hardware.h"
 
-class MainScreen {
-    public:
-        MainScreen(Adafruit_GC9A01A* display, DS1307* clock);
+void screenInit();
+void mainScreenUpdate();
+void mainScreenDraw();
 
-        void update();
-        void draw();
-        void forceRedraw();
 
-    private:
-        Adafruit_GC9A01A* tft;
-        DS1307* rtc;
-
-        bool mainDirtyDate, mainDirtyTime, needFullRedraw;
-        unsigned long nextPollMs;
-        int lastWeek, lastDate, lastMonth, lastHour, lastMinute;
-        String month_name;
-        String day;
-
-        void dayName(int week);
-        void monthName(int month);
-        static inline uint32_t nowMs() { return (uint32_t)millis();}
-};
+const char* dayName(int week);
+const char* monthName(int month);
+void saveSteps();
+void newDayReset();
