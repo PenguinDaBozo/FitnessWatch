@@ -830,7 +830,11 @@ and also thanks to all the goats on arduino and platformio forums for figuring o
 https://community.platformio.org/t/hpp-header-files-seems-to-compile-in-c-and-not-c/38432/9
 
 
-# day 71 1/3/26
+# day 71 - 1/3/26
+
+
+animation fixed yayyyyy
+
 
 <img width="528" height="561" alt="image" src="https://github.com/user-attachments/assets/10f21c61-c611-438d-96bc-29a35fc38266" />
 
@@ -840,11 +844,13 @@ clone https://github.com/olikraus/u8g2/tree/master/tools/font/bdfconv (ty my sav
 
 1) copy the bdf file into wsl ```cp /mnt/c/...font_file.bdf```
 
-2) run ```./bdfconv ~/font_file.bdf \ -f 1 \ -m '32-127' \ -n u8g2_font_roboto26_full \ -o u8g2_font_roboto26_full.h```
+2) run ```./bdfconv ~/font_file.bdf \ -f 1 \ -m '32-127' \ -n u8g2_font_name_full \ -o u8g2_font_name_full.h```
    -n names the c symbol
    -o names the file output
    
 3) copy bdf file back into windows ```cp font_file.h /mnt/c/...```
+
+and then copy the content within the h file and call it YAYYYYYY
 
 
 
