@@ -830,3 +830,7 @@ and also thanks to all the goats on arduino and platformio forums for figuring o
 https://community.platformio.org/t/hpp-header-files-seems-to-compile-in-c-and-not-c/38432/9
 
 
+# day 71
+
+<img width="528" height="561" alt="image" src="https://github.com/user-attachments/assets/10f21c61-c611-438d-96bc-29a35fc38266" />
+
