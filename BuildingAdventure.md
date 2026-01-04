@@ -834,3 +834,15 @@ https://community.platformio.org/t/hpp-header-files-seems-to-compile-in-c-and-no
 
 <img width="528" height="561" alt="image" src="https://github.com/user-attachments/assets/10f21c61-c611-438d-96bc-29a35fc38266" />
 
+to get custom fonts u have to download ttf file then using fontForg (some open source font converter) download it as a bdf after spamming element and different settings until the characters look correct. now using wsl
+
+clone https://github.com/olikraus/u8g2/tree/master/tools/font/bdfconv (ty my savior)
+
+1) copy the bdf file into wsl ```cp /mnt/c/...font_file.bdf```
+2) run ```./bdfconv ~/font_file.bdf \
+  -f 1 \
+  -m '32-127' \ // ascii code
+  -n u8g2_font_roboto26_full \ // c symbol name
+  -o u8g2_font_roboto26_full.h // output file ```
+3) copy bdf file back into windows ```cp font_file.h /mnt/c/...```
+
