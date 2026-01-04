@@ -840,15 +840,12 @@ clone https://github.com/olikraus/u8g2/tree/master/tools/font/bdfconv (ty my sav
 
 1) copy the bdf file into wsl ```cp /mnt/c/...font_file.bdf```
 
-2) run ```./bdfconv ~/font_file.bdf \ /n
-  -f 1 \ /n
-  -m '32-127' \ /n
-  -n u8g2_font_roboto26_full \n
-  -o u8g2_font_roboto26_full.h```
+2) run ```./bdfconv ~/font_file.bdf \ -f 1 \ -m '32-127' \ -n u8g2_font_roboto26_full \ -o u8g2_font_roboto26_full.h```
    -n names the c symbol
    -o names the file output
    
 3) copy bdf file back into windows ```cp font_file.h /mnt/c/...```
+
 
 
 
