@@ -173,29 +173,33 @@ bool dirtyCountdownSec = false;
 unsigned long boxBreathingStart = 0;
 unsigned long boxBreathingElapsed = 0;
 int lastSecBox = -1;
-bool horizontal, vertical = false;
 bool dirtyMode, dirtyBox = false;
-int x_pos = 88, y_pos = 84;
-int h = 88, k = 84; 
-int last_x = 88, last_y = 84;
+float x_pos = 88, y_pos = 84;
+int i, j; 
+float last_x = 88, last_y = 84;
 String mode = "BREATHE IN";
 bool staticBox = false;
-int32_t increment = 0.8;
 bool invalidScreen = true;
+int modeStage = 0;
+long secBox = 0;
+bool countBox = false;
+
 
 void updateBoxBreathing(){
-    if(digitalRead(BUTTON_START)==!HIGH){
+    if(digitalRead(BUTTON_START)==LOW){
         if(breathingState == MENU_STATE){
             countdownBreathing = 3;
             x_pos = 88, y_pos = 84;
             dirtyCountdownSec = true;
+            secBox = 0;
             breathingState = COUNTDOWN_STATE;
         }
     }
-    if(digitalRead(BUTTON_STOP)==!HIGH){
+    if(digitalRead(BUTTON_STOP)==LOW){
         breathingState = MENU_STATE;
         staticBox = false;
     }
+    invalidScreen = true;
 
 }
 
@@ -211,7 +215,7 @@ void drawBoxBreathing(){
         drawSim();
     }
 
-    img.unloadFont();
+    // img.unloadFont();
     img.pushSprite(0,0);
 }
 
@@ -219,27 +223,31 @@ void drawMenuState(){
     img.fillSprite(TFT_BLACK);
     img.setTextSize(1);
     img.pushImage(10, 77, 16, 84, scroll_wheel);
-    img.setFont(&fonts::Font4);
+    img.setFont(&roboto20);
     img.setTextDatum(CL_DATUM);
     img.drawString("BOX", 42, 80);
     img.drawString("BREATHING", 42, 98);
-    img.pushImage( 42, 143, 84, 24, defaultStart); 
+    img.pushImage(42, 143, 84, 24, defaultStart); 
 }
 void countdown(){
   unsigned long currentMs = millis();
   img.fillSprite(TFT_BLACK);
-  img.setFont(&fonts::Font4);
+  img.setFont(&baloo46);
   img.setTextDatum(CC_DATUM);
   img.setTextSize(3);
 
   if(countdownBreathing == 0) {
     
     if(currentMs - lastMillisCounter >= waitTime) {
-      img.fillSprite(TFT_BLACK);
-      tone(BUZZER, 1200, 500);
-      img.drawString("BEGIN", 128, 128);
-      breathingState = SIMULATION_STATE;
-      lastMillisCounter = currentMs;
+        img.setFont(&roboto20);
+        img.fillSprite(TFT_BLACK);
+        tone(BUZZER, 1200, 500);
+        img.drawString("BEGIN", 128, 128);
+        breathingState = SIMULATION_STATE;
+        lastMillisCounter = currentMs;
+        invalidScreen = true;
+        countBox = true;
+        boxBreathingStart = millis();
     }
     return;
   }
@@ -256,70 +264,60 @@ void countdown(){
 }
 
 void updateSim(){
-    boxBreathingElapsed = millis() - boxBreathingStart;
+    // boxBreathingElapsed = millis() - boxBreathingStart;
 
-    int sec = boxBreathingElapsed / 1000;
-    int stage = sec% 16;
-    Serial.println(sec);
-    Serial.println(stage);
+    // secBox = (boxBreathingElapsed / 1000);
 
-    //init x pos = 88
-    // init y pos = 84
-    if(stage != lastSecBox){
-        lastSecBox = stage;
+    secBox = (millis()-boxBreathingStart) / 1000;
 
-        switch(stage){
-            case 0:
-                // dirtyMode = true;
-                horizontal = true;
-                vertical = false;
-                mode = "BREATHE IN";
-                // h = x_pos;
-                increment = 0.8;
-                break;
-            case 4:
-                // dirtyMode = true;
-                horizontal = false;
-                vertical = true;
-                mode = "HOLD";
-                // x_pos = h;
-                // k = y_pos;
-                increment = 0.8;
-                break;
-            case 8:
-                // dirtyMode = true;
-                horizontal = true;
-                vertical = false;
-                mode = "BREATHE OUT";
-                // h = x_pos;
-                // y_pos = k;
-                increment = -0.8;
-                break;
-            case 12:
-                // dirtyMode = true;
-                horizontal = false;
-                vertical = true;
-                mode = "HOLD";
-                // x_pos = h;
-                // k = y_pos;
-                increment = -0.8;
-                break;
-            case 16:    
-                Serial.println("sim ended");
-                increment = 0;
-                breathingState = MENU_STATE;
-                staticBox = false;
-                return;
+    
+    if(secBox !=lastSecBox){
+        lastSecBox = secBox;
 
-        }
+    if(modeStage == 0 && lastSecBox == 0){ // Breathe in
+        mode = "BREATHE IN";
+        i=1; j=0;
         dirtyMode = true;
+        modeStage++;
+    } else if(modeStage == 1  && lastSecBox == 4){ // hold
+        mode = "HOLD";
+        i=0; j=1;
+        dirtyMode = true;
+        modeStage++;
+    } else if(modeStage == 2 && lastSecBox == 8){ // breathe out
+        mode = "BREATHE OUT";
+        i=-1; j=0;
+        dirtyMode = true;
+        modeStage++;
+    } else if(modeStage == 3 && lastSecBox == 12){ // hold
+        mode = "HOLD";
+        i=0; j=-1;
+        dirtyMode = true;
+        modeStage++;
+    } else if(modeStage == 4  && lastSecBox == 16){ // reset
+        x_pos = 88;
+        y_pos = 84;
+        Serial.println("sim ended");
+
+        staticBox = false;
+        breathingState = MENU_STATE;
+        boxBreathingStart =  0;
+        secBox = 0;
+        modeStage = 0;
+        dirtyMode = false;
+        invalidScreen = true;
+        dirtyBox = false;
+        countBox = false;
+        return;
     }
-
-    if(horizontal) h += increment;
-    if(vertical) k += increment;
-
-    x_pos = h;
-    y_pos = k;
+    Serial.println("second" + String(secBox));
+    Serial.println("modeStage" + String(modeStage));
+    }
+    
+    
+    
+    x_pos+=0.4*i;
+    y_pos+=0.4*j;
 
     dirtyBox = true;
 }
@@ -327,18 +325,17 @@ void updateSim(){
 void drawSim(){
     img.setTextSize(1);
     img.setTextDatum(CC_DATUM);
-    img.setFont(&fonts::Font4);
+    img.setFont(&roboto20);
     if(invalidScreen){
         img.fillSprite(TFT_BLACK);
     }
-    
-
+    img.setFont(&fonts::Font4);
     img.drawRect(87, 83, 64, 64, TFT_WHITE);
     img.fillRect(56, 161, 128, 40, 0x4208);
     img.drawRect(57, 162, 126, 38, secondaryColor);
     img.pushImage(67, 169, 12, 12, heart);
     img.setTextFont(2);
-    img.drawString("141", 73, 188);
+    // img.drawString("141", 73, 188);
     img.drawString("Press [STOP] to exit", 128, 209);
     staticBox = true;
     
@@ -348,6 +345,12 @@ void drawSim(){
     //     img.drawString(mode, 128, 66); 
     //     img.drawCircle(x_pos, y_pos, 4, TFT_RED);
     // }
+
+    if(state.dirtyHeartRate || invalidScreen) {
+        img.fillRect(67, 185, 10, 9, 0x4208);
+        img.drawString(String(int(state.bpm)), 73, 190);
+        state.dirtyHeartRate = false;
+    }
 
     if(dirtyMode || invalidScreen) {
         img.fillRect(40, 40, 200, 40, TFT_BLACK);
@@ -362,11 +365,11 @@ void drawSim(){
             img.drawRect(87, 83, 64, 64, TFT_WHITE);
         }
         
-        img.fillCircle(x_pos, y_pos, 4, TFT_RED);
+        img.fillCircle(x_pos, y_pos, 4, 0xF800);
 
         last_x = x_pos;
         last_y = y_pos;
         dirtyBox = false;
-        invalidScreen = false;
     }
+    invalidScreen = false;
 }

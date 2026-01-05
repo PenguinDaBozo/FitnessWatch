@@ -8,8 +8,10 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 #include <cstring>
-#include "Adafruit_GFX.h"
 #include <LovyanGFX.hpp>
+#include "MAX30105.h"
+#include "fonts.h"
+
 
 class LGFX : public lgfx::LGFX_Device {
     lgfx::Panel_GC9A01 panel;
@@ -34,7 +36,7 @@ class LGFX : public lgfx::LGFX_Device {
         p.pin_cs  = 9;
         p.panel_width = 240;
         p.panel_height = 240;
-        p.rgb_order = true;
+        p.rgb_order = false;
         p.invert = true;
         panel.config(p);
 
@@ -52,7 +54,7 @@ class LGFX : public lgfx::LGFX_Device {
 #define BUTTON_START 39
 #define BUTTON_STOP 38
 
-#define BUZZER 14
+#define BUZZER 17
 
 extern LGFX tft;
 extern LGFX_Sprite img;
@@ -68,11 +70,14 @@ struct State {
 
     float temp;
     char description[8];
+    float bpm;
 
     bool farenheitMode;
     bool isFirstRun;
     bool dirtyDate, dirtyTime, daylightSaving;
     bool dirtyWeather;
+    bool dirtySteps;
+    bool dirtyHeartRate;
 };
 
 extern State state;
@@ -96,6 +101,11 @@ extern bool staticDrawn;
 extern bool count;
 extern bool isStart;
 
+extern const lgfx::U8g2font baloo85;
+extern const lgfx::U8g2font roboto20;
+extern const lgfx::U8g2font baloo46;
+extern const lgfx::U8g2font baloo72;
+extern const lgfx::U8g2font helvR24;
 
 void screenInit();
 

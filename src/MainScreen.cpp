@@ -7,6 +7,7 @@
 // MPU6050 mpu(0x69);
 
 
+
 const uint16_t secondaryColor = tft.color565(184, 184, 184); // Light gray
 
 const uint16_t full_battery_icon[50*50] PROGMEM  = {
@@ -794,294 +795,13 @@ const char* dayName(int week){
   return days[week];
 }
 
-const char* monthName(int month){        // RTC often gives 1..12
+const char* monthName(int month){        
   static const char* months[]={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
   if (month < 1) month = 1;
   if (month > 12) month = 12;
   return months[month-1];
 }
 
-// #define OUTPUT_READABLE_ACCELGYRO
-
-// int16_t ax, ay, az;
-// int16_t gx, gy, gz;
-
-// unsigned long nextPollMs = 0;
-// unsigned long lastStepUpdate = 0;
-// const unsigned long stepInterval = 5000;
-
-// bool mainDirtyDate = false, mainDirtyTime = false, dirtyWeather = false;
-// bool dayLightSaving = false;
-// bool farenheitMode = true; 
-// bool isFirstRun = true;
-
-
-// int lastDayOfTheWeek = -1, lastDay = -1, lastMonth = -1, lastHour = -1, lastMinute = -1, lastSteps = -1;
-// int steps = 0; 
-// long accMagnitudePrev = -1;
-
-// String month_name = "";
-// String day = "";
-
-// const char* ssid = "MySpectrumWiFic8-2G";
-// const char* password = "moderntiger313";
-
-// String url = "https://api.openweathermap.org/data/2.5/weather?";
-// String APIkey = "ed2bd981cb54db5ad049bd34731c385b";
-
-// String lat = "40.724378";
-// String lon = "-73.904365";
-
-// String lat = "44.43619406356221";
-// String lon = "142.4619355014853";
-
-// float temp;
-// char description[8] = {0};
-
-
-// const char* dayName(int week){           // expect 0..6
-//   static const char* days[]={"SUN","MON","TUE","WED","THU","FRI","SAT"};
-//   if (week < 0) week = 0;
-//   if (week > 6) week = 6;
-//   return days[week];
-// }
-
-// const char* monthName(int month){        // RTC often gives 1..12
-//   static const char* months[]={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
-//   if (month < 1) month = 1;
-//   if (month > 12) month = 12;
-//   return months[month-1];
-// }
-
-// void screenInit() {
-//   #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
-//     Wire.begin();
-//   #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
-//     Fastwire::setup(400, true);
-//   #endif
-
-//   Serial.begin(115200);
-  
-//   WiFi.begin(ssid, password);
-
-//   while(WiFi.status() != WL_CONNECTED) {
-//     delay(500);
-//     Serial.print(".");
-//   }
-
-//   Serial.println("");
-//   Serial.print("IP Address: ");
-//   Serial.print(WiFi.localIP());
-
-
-//   rtc.begin();
-//   if(!rtc.begin()) {
-//     Serial.println("Couldn't find RTC");
-//     Serial.flush();
-//     while (1) delay(10);
-//   } else {
-//     Serial.println("RTC found");
-//   }
-
-  
-
-//   Serial.println("Intiallizing MPU...");
-//   mpu.initialize();
-//   Serial.println("Testing MPU6050 connection...");
-//   if(mpu.testConnection() == false){
-//     Serial.println("MPU6050 connection failed");
-//     while (true);
-//   }
-//   else {
-//     Serial.println("MPU6050 connection successful");
-//   }
-
-//   EEPROM.begin(sizeof(int));
-//   EEPROM.get(0, steps);
-//   Serial.printf("Steps loaded from EEPROM: %d\n", steps);
-
-//   Serial.println("Updating internal sensor offsets...\n");
-//   mpu.setXAccelOffset(0);
-//   mpu.setYAccelOffset(0);
-//   mpu.setZAccelOffset(0);
-//   mpu.setXGyroOffset(0);
-//   mpu.setYGyroOffset(0);
-//   mpu.setZGyroOffset(0);
-
-//   Serial.print("\t");
-//   Serial.print(mpu.getXAccelOffset());
-//   Serial.print("\t");
-//   Serial.print(mpu.getYAccelOffset()); 
-//   Serial.print("\t");
-//   Serial.print(mpu.getZAccelOffset());
-//   Serial.print("\t");
-//   Serial.print(mpu.getXGyroOffset()); 
-//   Serial.print("\t");
-//   Serial.print(mpu.getYGyroOffset());
-//   Serial.print("\t");
-//   Serial.print(mpu.getZGyroOffset());
-//   Serial.print("\n");
-
-//   tft.init();
-//   tft.setRotation(0);
-//   tft.setSwapBytes(true);
-
-//   img.setColorDepth(16);
-//   if (!img.createSprite(240, 240)) { Serial.println("createSprite FAIL"); return; }
-  
-//   Serial.println("Sprite created");
-//   img.setSwapBytes(true);
-
-
-//   img.createSprite(240, 240);
-  // ESP.getFreeHeap();
-
-//   img.fillSprite(TFT_BLACK);
-
-//   // img.setTextFont(2);
-//   // img.setTextColor(TFT_WHITE);
-//   // img.pushImage(144, 50, 50,50, full_battery_icon);
-//   // img.drawString("100", 158, 66);
-//   // img.drawArc(169, 75, 20, 17, 30, 330, TFT_WHITE, TFT_WHITE, true);
-//   // img.fillCircle(210,122,24.8,0x4208);
-//   // // img.pushImage(185, 97, 50, 50, sunny_icon);
-  
-
-//   // img.pushImage(144, 140, 50, 50, steps_icon);
-//   // // img.drawString("1067", 154, 170);
-
-//   // img.pushImage(10, 77, 16, 84, scroll_wheel);
-//   img.pushSprite(0, 0);
-
-//   Serial.println("Main screen initialized");
-// }
-
-// void mainScreenUpdate() {
-  // uint32_t currentMs = millis();
-  // if (currentMs < nextPollMs) return;
-  // nextPollMs = currentMs + 250; 
-
-  // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-  // DateTime now = rtc.now();
-  
-  // int month = now.month();
-  // int day = now.day();;
-  // int year = now.year();
-
-  // int dayOfTheWeek = now.dayOfTheWeek(); // this might need fixing 
-  // int hour = dayLightSaving? now.hour()+1: now.hour();
-  // int minute = now.minute();
-  // int second = now.second();
-
-  // Serial.println(month);
-  // Serial.println(day);
-  // Serial.print(year);
-  // Serial.print(dayOfTheWeek);
-  // Serial.println(hour);
-  // Serial.println(minute);
-  // Serial.println(second);
-
-
-  // HTTPClient http;
-
-  // http.begin(url + "lat=" + lat + "&lon=" + lon + "&units=metric&appid=" + APIkey);
-
-  // int httpCode = http.GET();
-
-  // if(httpCode > 0){
-  //   if(isFirstRun || lastHour/2 != hour/2){
-  //     WiFiClient& stream = http.getStream();
-
-  //   StaticJsonDocument<256> filter;
-  //   filter["weather"][0]["icon"] = true;
-  //   filter["main"]["temp"] = true;
-
-  //   StaticJsonDocument<512> doc;
-
-  //   auto err = deserializeJson(doc, stream, DeserializationOption::Filter(filter));
-  //   if (err) {
-  //     Serial.println(err.c_str());
-  //     return;
-  //   }
-  //   const char* icon = doc["weather"][0]["icon"].as<const char*>();
-  //   if (icon == nullptr) {
-  //     Serial.println("ICON IS NULL — JSON did NOT contain weather[0].icon");
-  //   }
-
-  //   strncpy(description, icon, sizeof(description) - 1);
-  //   description[sizeof(description) - 1] = '\0';
-  //   temp = doc["main"]["temp"].as<float>(); // Celsius
-
-  //   dirtyWeather = true;
-
-    // Serial.println("description:\t");
-    // Serial.println(description);
-    // Serial.print("temp:");
-  //   // Serial.println(temp);
-  //   }
-  // }
-
-  // if(day != lastDay && !isFirstRun){
-  //   lastDay = day;
-  //   newDayReset();
-  // }
-
-  // mpu.getMotion6(&ax, &ay, &az, &gz, &gy, &gz);
-
-  // #ifdef OUTPUT_READABLE_ACCELGYRO
-  //   Serial.print("a/g:\t");
-  //   Serial.print(ax); Serial.print("\t");
-  //   Serial.print(ay); Serial.print("\t");
-  //   Serial.print(az); Serial.print("\t");
-  //   Serial.print(gx); Serial.print("\t");
-  //   Serial.print(gy); Serial.print("\t");
-  //   Serial.println(gz);
-  // #endif
-
-//   #ifdef OUTPUT_BINARY_ACCELGYRO
-//     Serial.write((uint8_t)(ax >> 8)); Serial.write((uint8_t)(ax & 0xFF));
-//     Serial.write((uint8_t)(ay >> 8)); Serial.write((uint8_t)(ay & 0xFF));
-//     Serial.write((uint8_t)(az >> 8)); Serial.write((uint8_t)(az & 0xFF));
-//     Serial.write((uint8_t)(gx >> 8)); Serial.write((uint8_t)(gx & 0xFF));
-//     Serial.write((uint8_t)(gy >> 8)); Serial.write((uint8_t)(gy & 0xFF));
-//     Serial.write((uint8_t)(gz >> 8)); Serial.write((uint8_t)(gz & 0xFF));
-//   #endif
-//     float accX = ax / 16384.0;
-//     float accY = ay / 16384.0;
-//     float accZ = az / 16384.0;
-
-//     float magnitude = sqrt(accX * accX + accY * accY + accZ * accZ);
-
-//     if (accMagnitudePrev > magnitude + 0.1 && accMagnitudePrev > 1.5) {
-//       steps++;
-//       saveSteps();
-//       Serial.printf("Step detected! Total steps: %d\n", steps);
-//     }
-//     accMagnitudePrev = magnitude;
-
-
-
-//   if(dayOfTheWeek != lastDayOfTheWeek || day != lastDay || month != lastMonth){
-//     lastDayOfTheWeek = dayOfTheWeek; lastDay = day; lastMonth = month;
-//     mainDirtyDate = true;
-//   }
-
-//   if(hour != lastHour || minute != lastMinute){
-//     lastHour = hour;
-//     lastMinute = minute; 
-//     mainDirtyTime = true;
-//   }
-
-//   static int prevSecond = -1;
-//   if (second == 0 && prevSecond != 0 && minute != lastMinute)
-//   {
-//     lastMinute = minute; 
-//     lastHour = hour;
-//     mainDirtyTime = true;
-//   }
-//   prevSecond = second;
-//   http.end();
-// }
     
 void mainScreenDraw() {
     String display_m = "";
@@ -1094,7 +814,7 @@ if(invalidateScreen) {
   img.pushImage(144, 50, 50,50, full_battery_icon);
   img.setTextDatum(CC_DATUM);
   img.drawString("100", 169, 75);
-  img.drawArc(169, 75, 20, 17, 30, 330, TFT_WHITE);
+  img.fillArc(169, 75, 20, 17, 120, 60, TFT_WHITE);
   // img.pushImage(185, 97, 50, 50, sunny_icon);
   
 
@@ -1105,12 +825,12 @@ if(invalidateScreen) {
 
 if(state.isFirstRun){
   state.isFirstRun = false;
-  state.dirtyDate = state.dirtyTime = state.dirtyWeather = true;
+  state.dirtyDate = state.dirtyTime = state.dirtyWeather = state.dirtySteps = true;
   lastUpdate = millis();
   return;
 }
 
-if (millis() - lastUpdate >= 5000 || invalidateScreen) {
+if (state.dirtySteps || invalidateScreen) {
   
   img.fillRect(154, 171, 30, 15, 0x4208);
   img.setTextColor(TFT_WHITE);
@@ -1174,8 +894,8 @@ if (state.dirtyDate || invalidateScreen) {
     img.fillRect(102, 16, 100, 30, TFT_BLACK);
     img.fillRect(89, 204, 100, 30, TFT_BLACK);
     img.setTextPadding(80);
-    // img.setTextColor(secondaryColor);
-    img.setFont(&fonts::Font4);
+    img.setTextColor(secondaryColor);
+    img.setFont(&roboto20);
 
     img.drawString(dayName(state.dayOfWeek), 102, 16);
     img.drawString(String(monthName(state.month)) + " " + String(state.date), 89, 204);
@@ -1185,7 +905,7 @@ if (state.dirtyDate || invalidateScreen) {
 if (state.dirtyTime || invalidateScreen) {
     img.fillRect(29, 45, 110, 150, TFT_BLACK);
     img.setTextDatum(TL_DATUM); 
-    img.setFont(&fonts::Font4);
+    img.setFont(&baloo85);
     img.setTextPadding(img.textWidth("44"));
     img.setTextColor(TFT_WHITE);
       
@@ -1197,6 +917,7 @@ if (state.dirtyTime || invalidateScreen) {
     if(state.hour < 10) display_h += "0";
     display_h += String(state.hour);
     img.drawString(display_h, 42, 45);
+    Serial.println("Hour drawn: " + display_h);
     img.setTextColor(secondaryColor);
 
     // Draw minutes 
@@ -1207,24 +928,10 @@ if (state.dirtyTime || invalidateScreen) {
         img.drawString(display_m + String(state.minute), 34, 113);
     }
     state.dirtyTime = false;
+    
     }
     img.unloadFont();
 
     img.pushSprite(0, 0);
     invalidateScreen = false;
 }
-
-// void saveSteps(){
-//     EEPROM.put(0, steps);
-//     EEPROM.commit();
-//     Serial.printf("Steps saved to EEPROM: %d\n", steps);
-
-// }
-
-// void newDayReset(){
-//     for(int i = 0; i < 10; i++){
-//       EEPROM.write(i, 0);
-//     } 
-//     EEPROM.commit();
-//     steps = 0;
-// }

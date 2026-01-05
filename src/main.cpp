@@ -4,10 +4,6 @@
 #include "BreathingScreen.h"
 #include "Stopwatch.h"
 
-
-#include "Roboto_10pt7b.h"
-#include "Baloo2_46pt7b.h"
-
 #define NUM_SCREEN 3
 
 
@@ -25,6 +21,13 @@ bool screenChanged = !HIGH;
 unsigned long lastTimeUpButtonStateChanged = millis();
 unsigned long lastTimeDownButtonStateChanged = millis();
 unsigned long debounceDuration = 50;
+
+unsigned long now;
+
+unsigned long lastStepsUpdate = 0;
+unsigned long lastTimeUpdate = 0;
+unsigned long lastWeatherUpdate = 0;
+unsigned long lastHeartRateUpdate = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -47,8 +50,10 @@ void setup() {
 
   screenInit();
   mpu6050Init();
-  ds1307Init();
   wifiInit();
+  ds1307Init();
+  
+  max30102Init();
 
   Serial.println("Setup complete");
   
@@ -115,13 +120,25 @@ void handleButtons() {
 
 
 void loop() {
-    updateTime();
-    updateSteps();
-    updateWeather();
-
+  now = millis();
     handleButtons();
-    
 
+    if(now - lastStepsUpdate >=20 || state.isFirstRun) {
+      updateSteps();
+      lastStepsUpdate = now;
+    }
+    if(now - lastTimeUpdate >=1000 || state.isFirstRun) {
+      updateTime();
+      lastTimeUpdate = now;
+    }
+    if(now - lastWeatherUpdate >=300000 || state.isFirstRun) {
+      updateWeather();
+      lastWeatherUpdate = now;
+    }
+    if(now - lastHeartRateUpdate >=1000 || state.isFirstRun) {
+      updateHeartRate();
+      lastHeartRateUpdate = now;
+    }
     switch(state.currentScreen){
       case 0:
         mainScreenDraw();
@@ -134,7 +151,7 @@ void loop() {
         updateStopWatch();
         drawStopWatch();
         break;
-    }   
+    }  
 }
 
 

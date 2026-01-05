@@ -304,7 +304,7 @@ void updateStopWatch(){
     int hund = (stopwatchElapsed % 1000) /10;
 
     trackMins = mins;
-    trackSeconds = secs;
+    trackSeconds = (secs>=60) ? secs%60 : secs;
     trackHundredthSecond = hund;
 
     if(mins!=lastMin) dirtyMin = true;
@@ -320,14 +320,14 @@ void updateStopWatch(){
 
 
 void drawStopWatch(){
-    img.setFreeFont(&FreeMonoBold24pt7b);
+    img.setFont(&FreeMonoBold24pt7b);
     img.setTextDatum(CC_DATUM);
     if(!staticDrawn){
         img.fillSprite(TFT_BLACK);
         img.pushImage(10, 77, 16, 84, scroll_wheel);
         img.pushImage(60, 128, 45, 45, reset);
-        img.drawString(":", 90, 81);
-        img.drawString(":", 155, 81); 
+        img.drawString(":", 93, 81);
+        img.drawString(":", 159, 81); 
         staticDrawn = true;
     }
     
@@ -344,7 +344,7 @@ void drawStopWatch(){
     }
     
     if(dirtyMin) {
-        img.fillRect(35, 60, 55, 45, TFT_BLACK);
+        img.fillRect(35, 60, 53, 45, TFT_BLACK);
         if(trackMins<10) {
             img.drawString("0" + String(trackMins), 60, 81);
         } else{
@@ -362,11 +362,11 @@ void drawStopWatch(){
     }
     
     if(dirtyHun) {
-        img.fillRect(167, 60, 55, 45, TFT_BLACK);
+        img.fillRect(166, 60, 56, 45, TFT_BLACK);
         if(trackHundredthSecond<10) {
-            img.drawString("0" + String(trackHundredthSecond), 190, 81);
-        }else {
-            img.drawString(String(trackHundredthSecond), 190, 81);
+            img.drawString("0" + String(trackHundredthSecond), 191, 81);
+        } else {
+            img.drawString(String(trackHundredthSecond), 191, 81);
         }
     }
 

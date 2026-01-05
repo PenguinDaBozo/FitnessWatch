@@ -1,8 +1,14 @@
 #include "Hardware.h"
+#include "heartRate.h"
+
+#define MIN_IR 50000
+#define PEAK_THRESHOLD 800
+
 
 // sensors
 RTC_DS1307 rtc;
 MPU6050 mpu(0x69);
+MAX30105 max30102;
 
 
 // wifi
@@ -30,6 +36,14 @@ const unsigned long stepInterval = 5000;
 // int steps = 0; 
 long accMagnitudePrev = -1;
 
+const byte RATE_SIZE = 4;
+byte rates[RATE_SIZE];
+byte rateSpot = 0;
+long lastBeat = 0;
+bool peak = false; 
+
+float beatsPerMinute;
+int beatAvg;
 
 // rtc
 // bool mainDirtyDate = false, mainDirtyTime = false, dayLightSaving = false;
@@ -41,6 +55,9 @@ String day = "";
 const char* ssid = "MySpectrumWiFic8-2G";
 const char* password = "moderntiger313"; // expect 0..6
 
+bool timeSynced = false;
+unsigned long lastTimeSync = 0;
+const unsigned long TIME_SYNC_INTERVAL = 3600000; 
 
 void saveSteps(){
     EEPROM.put(0, state.steps);
@@ -56,12 +73,6 @@ void newDayReset(){
     EEPROM.commit();
     state.steps = 0;
 }
-
-
-
-// extra
-// bool isFirstRun = true;
-
 
 // initialization
 void mpu6050Init() {
@@ -88,8 +99,18 @@ void mpu6050Init() {
   mpu.setZGyroOffset(0);
 }
 
+void max30102Init(){
+  if(!max30102.begin(Wire, I2C_SPEED_FAST)) {
+    Serial.println("MAX30102 was not found. Please check wiring/power.");
+    while (1);
+  }
+  max30102.setup(); 
+  max30102.setPulseAmplitudeRed(0x0A);
+  max30102.setPulseAmplitudeGreen(0x0A);
+  Serial.println("MAX30102 initialized");
+}
+
 void ds1307Init() {
-  rtc.begin();
   if(!rtc.begin()) {
     Serial.println("Couldn't find RTC");
     Serial.flush();
@@ -97,8 +118,11 @@ void ds1307Init() {
   } else {
     Serial.println("RTC found");
   }
-  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-
+  if(!rtc.isrunning()) {
+    Serial.println("RTC is NOT running, setting the time!");
+    
+  }
+  
   
 }
 
@@ -114,6 +138,69 @@ void wifiInit(){
       Serial.print("IP Address: ");
       Serial.print(WiFi.localIP());
 }
+
+void tryNtpSync(){
+    static bool ntpConfigured = false;
+    if(!ntpConfigured){
+        configTime(0, 0, "pool.ntp.org", "time.nist.gov");
+        ntpConfigured = true;
+    }
+
+    struct tm timeinfo;
+    if(!getLocalTime(&timeinfo, 1000)){
+        Serial.println("Failed to obtain time");
+        return;
+    }
+    rtc.adjust(DateTime(
+        timeinfo.tm_year + 1900,
+        timeinfo.tm_mon + 1,
+        timeinfo.tm_mday,
+        timeinfo.tm_hour,
+        timeinfo.tm_min,
+        timeinfo.tm_sec
+    ));
+    Serial.println("RTC time synchronized with NTP");
+    timeSynced = true;
+}
+
+long dcRemove(long x) {
+  static long dc = 0;
+  dc = dc + ((x - dc) >> 4);
+  return x - dc;
+}
+
+long bandpass(long x){
+  static long lp = 0;
+  lp = lp + ((x-lp)>>2);
+  return lp;
+}
+
+boolean detectPeak(long x){
+  static long prev = 0;
+  static long prevDiff = 0;
+
+  long diff = x - prev;
+  bool peak = (prevDiff > 0) && (diff <= 0) && (x > PEAK_THRESHOLD);
+  prevDiff = diff;
+  prev = x;
+  return peak;
+}
+
+byte median(byte num[RATE_SIZE]){
+  byte sorted[RATE_SIZE];
+  memcpy(sorted, num, sizeof(sorted));
+  for (byte i = 0; i < RATE_SIZE - 1; i++) {
+    for (byte j = i + 1; j < RATE_SIZE; j++) {
+      if (sorted[j] < sorted[i]) {
+        byte temp = sorted[i];
+        sorted[i] = sorted[j];
+        sorted[j] = temp;
+      }
+    }
+  }
+  return sorted[RATE_SIZE / 2];
+}
+
 
 // update
 void updateSteps() {
@@ -145,50 +232,43 @@ void updateSteps() {
       if (accMagnitudePrev > magnitude + 0.1 && accMagnitudePrev > 1.5) {
       state.steps++;
       saveSteps();
+      state.dirtySteps = true;
       Serial.printf("Step detected! Total steps: %d\n", state.steps);
       }
       accMagnitudePrev = magnitude;
 }
 
 void updateTime() {
+  
+
   DateTime now = rtc.now();
-    
-    int month = now.month();
-    int day = now.day();;
-    int year = now.year();
+  // if(state.isFirstRun) {
+  //   rtc.adjust(DateTime(2025, 12, 31, 2, 51, 43));
+  // }
 
-    int dayOfTheWeek = now.dayOfTheWeek();
-    int hour = state.daylightSaving? now.hour()+1: now.hour();
-    int minute = now.minute();
-    int second = now.second();
+  // if(WiFi.status() == WL_CONNECTED && millis() - lastTimeSync > TIME_SYNC_INTERVAL || state.isFirstRun){
+  //   tryNtpSync();
+  // }
 
-    Serial.println(month);
-    Serial.println(day);
-    Serial.print(year);
-    Serial.print(dayOfTheWeek);
-    Serial.println(hour);
-    Serial.println(minute);
-    Serial.println(second);
-
-    if(dayOfTheWeek != state.dayOfWeek || day != state.date || month != state.month){
-        state.dayOfWeek = dayOfTheWeek; state.date = day; state.month = month;
-        state.dirtyDate = true;
+    if(now.month() != state.month || now.day() != state.date ||now.dayOfTheWeek() != state.dayOfWeek){
+      state.month = now.month();
+      state.date = now.day();
+      state.dayOfWeek = now.dayOfTheWeek();
+      state.dirtyDate = true;
     }
 
-    if(hour != state.hour || minute != state.minute){
-        state.hour = hour;
-        state.minute = minute; 
-        state.dirtyTime = true;
+    if(now.hour() != state.hour || now.minute() != state.minute){
+      // state.hour = state.daylightSaving? local.tm_hour+1: local.tm_hour;
+      state.hour = now.hour();
+      state.minute = now.minute();
+      state.dirtyTime = true;
     }
-
-    static int prevSecond = -1;
-    if (second == 0 && prevSecond != 0 && minute != state.minute)
-    {
-        state.minute = minute; 
-        state.hour = hour;
-        state.dirtyTime = true;
-    }
-    prevSecond = second;
+    // Serial.println("State.month: " + String(state.month));
+    // Serial.println("State.date: " + String(state.date));
+    // Serial.print("State.dayOfWeek: " + String(state.dayOfWeek));
+    // Serial.println("State.hour: " + String(state.hour));
+    // Serial.println("State.minute: " + String(state.minute));
+    // Serial.println("Now.second(): " + String(now.second()));
 }
 
 void updateWeather(){
@@ -197,7 +277,7 @@ void updateWeather(){
     http.begin(url + "lat=" + lat + "&lon=" + lon + "&units=metric&appid=" + APIkey);
 
     int httpCode = http.GET();
-
+    Serial.println("HTTP code: " + String(httpCode));
     if(httpCode > 0){
         if(state.isFirstRun || state.minute%30==0){
         WiFiClient& stream = http.getStream();
@@ -224,7 +304,42 @@ void updateWeather(){
 
         state.dirtyWeather = true;
         }   
+    Serial.print("Weather updated: ");
     
     http.end();
     }
 }
+
+void updateHeartRate(){
+  Serial.println("Updating heart rate...");
+  // if(!max30102.available()) return;
+  long irValue = max30102.getIR();
+  Serial.println("IR Value: " + String(irValue));
+
+    // long ac = dcRemove(irValue);
+    // long filtered = bandpass(ac);
+
+  if(checkForBeat(irValue)){
+      Serial.println("BEAT");
+      long delta = millis() - lastBeat;
+      lastBeat = millis();
+
+      float beatsPerMinute = 60 / (delta / 1000.0);
+
+      if(beatsPerMinute < 255 && beatsPerMinute > 20){
+        rates[rateSpot++] = (byte)beatsPerMinute;
+        rateSpot %= RATE_SIZE;
+
+        state.bpm = median(rates);
+        state.dirtyHeartRate = true;
+        
+      }
+  }
+
+  Serial.println("IR Value: " + String(irValue));
+  Serial.println("Heartrate: " + String(state.bpm));
+  
+}
+
+
+
