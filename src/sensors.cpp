@@ -15,8 +15,8 @@ MAX30105 max30102;
 String url = "https://api.openweathermap.org/data/2.5/weather?";
 String APIkey = "ed2bd981cb54db5ad049bd34731c385b";
 
-String lat = "40.724378";
-String lon = "-73.904365";
+String lat = "";
+String lon = "";
 
 // float temp;
 // char description[8] = {0};
@@ -52,8 +52,8 @@ int beatAvg;
 String month_name = "";
 String day = "";
 
-const char* ssid = "MySpectrumWiFic8-2G";
-const char* password = "moderntiger313"; // expect 0..6
+const char* ssid = "";
+const char* password = ""; // expect 0..6
 
 bool timeSynced = false;
 unsigned long lastTimeSync = 0;
