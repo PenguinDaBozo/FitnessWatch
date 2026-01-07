@@ -13,9 +13,9 @@ MAX30105 max30102;
 
 // wifi
 String url = "https://api.openweathermap.org/data/2.5/weather?";
-String APIkey = "ed2bd981cb54db5ad049bd34731c385b";
+String APIkey = ""; // enter own api
 
-String lat = "";
+String lat = ""; // enter lat and long 
 String lon = "";
 
 // float temp;
