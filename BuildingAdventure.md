@@ -852,6 +852,9 @@ clone https://github.com/olikraus/u8g2/tree/master/tools/font/bdfconv (ty my sav
 
 and then copy the content within the h file and call it YAYYYYYY
 
+## day 72-75 - 1/22/25 - 1/25/26
+
+working on new pcb had to switch from kicad to easyeda bec the workflow is still easier on easyeda
 
 
 
